@@ -48,48 +48,40 @@
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="text-3xl font-bold mb-12 text-center">Proyectos de Eventos</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
                 <!-- Video 1 -->
                 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl border border-gray-700 hover:border-purple-500/50 transition-colors">
                     <div class="aspect-video relative">
-                         <video class="js-player w-full h-full absolute top-0 left-0" playsinline controls data-poster="videos/miniatura-evento1.jpg">
-                            <source src="videos/evento1-1080p.mp4" type="video/mp4" size="1080" />
-                            <source src="videos/evento1-720p.mp4" type="video/mp4" size="720" />
-                            <source src="videos/evento1-360p.mp4" type="video/mp4" size="360" />
-                        </video>
+                         <div class="js-player w-full h-full absolute top-0 left-0" data-plyr-provider="youtube" data-plyr-embed-id="iEdO8DOw1-0"></div>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Evento 1</h3>
                         <p class="text-gray-400 text-sm">Edición narrativa y musicalización.</p>
                     </div>
                 </div>
+
                 <!-- Video 2 -->
                 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl border border-gray-700 hover:border-purple-500/50 transition-colors">
                     <div class="aspect-video relative">
-                        <video class="js-player w-full h-full absolute top-0 left-0" playsinline controls data-poster="videos/miniatura-evento2.jpg">
-                            <source src="videos/evento2-1080p.mp4" type="video/mp4" size="1080" />
-                            <source src="videos/evento2-720p.mp4" type="video/mp4" size="720" />
-                            <source src="videos/evento2-360p.mp4" type="video/mp4" size="360" />
-                        </video>
+                        <div class="js-player w-full h-full absolute top-0 left-0" data-plyr-provider="youtube" data-plyr-embed-id="VVXLRcH9RKo"></div>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Evento 2</h3>
                         <p class="text-gray-400 text-sm">Cobertura dinámica de evento social.</p>
                     </div>
                 </div>
+
                 <!-- Video 3 -->
                 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl border border-gray-700 hover:border-purple-500/50 transition-colors">
                     <div class="aspect-video relative">
-                       <video class="js-player w-full h-full absolute top-0 left-0" playsinline controls data-poster="videos/miniatura-evento3.jpg">
-                            <source src="videos/evento3-1080p.mp4" type="video/mp4" size="1080" />
-                            <source src="videos/evento3-720p.mp4" type="video/mp4" size="720" />
-                            <source src="videos/evento3-360p.mp4" type="video/mp4" size="360" />
-                        </video>
+                       <div class="js-player w-full h-full absolute top-0 left-0" data-plyr-provider="youtube" data-plyr-embed-id="Ad-MOH0AMfY"></div>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Evento 3</h3>
                         <p class="text-gray-400 text-sm">Resumen emotivo y cinemático.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -102,11 +94,7 @@
             
             <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl border border-gray-700">
                  <div class="aspect-video relative">
-                    <video class="js-player w-full h-full absolute top-0 left-0" playsinline controls data-poster="videos/miniatura-color.jpg">
-                        <source src="videos/color-1080p.mp4" type="video/mp4" size="1080" />
-                        <source src="videos/color-720p.mp4" type="video/mp4" size="720" />
-                        <source src="videos/color-360p.mp4" type="video/mp4" size="360" />
-                    </video>
+                    <div class="js-player w-full h-full absolute top-0 left-0" data-plyr-provider="youtube" data-plyr-embed-id="G5SAO3ARLII"></div>
                 </div>
             </div>
         </div>
@@ -154,14 +142,12 @@
         <p>&copy; 2026 Karen Edits. Todos los derechos reservados.</p>
     </footer>
 
-<!-- Lógica del reproductor de video Plyr -->
+    <!-- Scripts del Reproductor -->
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const players = Array.from(document.querySelectorAll('.js-player')).map(p => new Plyr(p, {
-                settings: ['quality', 'speed', 'loop'],
-                quality: { default: 1080, options: [1080, 720, 360] }
-            }));
+            const players = Array.from(document.querySelectorAll('.js-player')).map(p => new Plyr(p));
         });
     </script>
+</body>
 </html>
