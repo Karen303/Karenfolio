@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karen Edits - Portafolio de Edición de Video</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body {
@@ -50,7 +50,11 @@
                 <!-- Video 1 -->
                 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl border border-gray-700 hover:border-purple-500/50 transition-colors">
                     <div class="aspect-video relative">
-                         <iframe class="w-full h-full absolute top-0 left-0" src="https://www.youtube.com/embed/iEdO8DOw1-0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                         <video class="js-player w-full h-full absolute top-0 left-0" playsinline controls data-poster="videos/miniatura-evento1.jpg">
+                            <source src="videos/evento1-1080p.mp4" type="video/mp4" size="1080" />
+                            <source src="videos/evento1-720p.mp4" type="video/mp4" size="720" />
+                            <source src="videos/evento1-360p.mp4" type="video/mp4" size="360" />
+                        </video>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Evento 1</h3>
@@ -60,7 +64,11 @@
                 <!-- Video 2 -->
                 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl border border-gray-700 hover:border-purple-500/50 transition-colors">
                     <div class="aspect-video relative">
-                        <iframe class="w-full h-full absolute top-0 left-0" src="https://www.youtube.com/embed/VVXLRcH9RKo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <video class="js-player w-full h-full absolute top-0 left-0" playsinline controls data-poster="videos/miniatura-evento2.jpg">
+                            <source src="videos/evento2-1080p.mp4" type="video/mp4" size="1080" />
+                            <source src="videos/evento2-720p.mp4" type="video/mp4" size="720" />
+                            <source src="videos/evento2-360p.mp4" type="video/mp4" size="360" />
+                        </video>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Evento 2</h3>
@@ -70,7 +78,11 @@
                 <!-- Video 3 -->
                 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl border border-gray-700 hover:border-purple-500/50 transition-colors">
                     <div class="aspect-video relative">
-                       <iframe class="w-full h-full absolute top-0 left-0" src="https://www.youtube.com/embed/Ad-MOH0AMfY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                       <video class="js-player w-full h-full absolute top-0 left-0" playsinline controls data-poster="videos/miniatura-evento3.jpg">
+                            <source src="videos/evento3-1080p.mp4" type="video/mp4" size="1080" />
+                            <source src="videos/evento3-720p.mp4" type="video/mp4" size="720" />
+                            <source src="videos/evento3-360p.mp4" type="video/mp4" size="360" />
+                        </video>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold mb-2">Evento 3</h3>
@@ -89,7 +101,11 @@
             
             <div class="bg-gray-800 rounded-lg overflow-hidden shadow-xl border border-gray-700">
                  <div class="aspect-video relative">
-                    <iframe class="w-full h-full absolute top-0 left-0" src="https://www.youtube.com/embed/G5SAO3ARLII" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <video class="js-player w-full h-full absolute top-0 left-0" playsinline controls data-poster="videos/miniatura-color.jpg">
+                        <source src="videos/color-1080p.mp4" type="video/mp4" size="1080" />
+                        <source src="videos/color-720p.mp4" type="video/mp4" size="720" />
+                        <source src="videos/color-360p.mp4" type="video/mp4" size="360" />
+                    </video>
                 </div>
             </div>
         </div>
@@ -137,5 +153,14 @@
         <p>&copy; 2026 Karen Edits. Todos los derechos reservados.</p>
     </footer>
 
-</body>
+<!-- Lógica del reproductor de video Plyr -->
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const players = Array.from(document.querySelectorAll('.js-player')).map(p => new Plyr(p, {
+                settings: ['quality', 'speed', 'loop'],
+                quality: { default: 1080, options: [1080, 720, 360] }
+            }));
+        });
+    </script>
 </html>
